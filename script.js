@@ -947,46 +947,46 @@ document.getElementById("navToggle").addEventListener("click", function () {
 });
 
 // Founder message tabs
-document.querySelectorAll(".tab-btn").forEach((btn) => {
-  btn.addEventListener("click", function () {
-    const lang = this.dataset.lang;
-    document
-      .querySelectorAll(".tab-btn")
-      .forEach((b) => b.classList.remove("active"));
-    document
-      .querySelectorAll(".message-content")
-      .forEach((m) => m.classList.remove("active"));
-    this.classList.add("active");
-    document.querySelector(".message-content." + lang).classList.add("active");
-  });
-});
+// document.querySelectorAll(".tab-btn").forEach((btn) => {
+//   btn.addEventListener("click", function () {
+//     const lang = this.dataset.lang;
+//     document
+//       .querySelectorAll(".tab-btn")
+//       .forEach((b) => b.classList.remove("active"));
+//     document
+//       .querySelectorAll(".message-content")
+//       .forEach((m) => m.classList.remove("active"));
+//     this.classList.add("active");
+//     document.querySelector(".message-content." + lang).classList.add("active");
+//   });
+// });
 
 // Principal quote flip
-document.addEventListener("DOMContentLoaded", function () {
-  const quoteCard = document.getElementById("quoteCard");
-  const quoteToggle = document.getElementById("quoteToggle");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const quoteCard = document.getElementById("quoteCard");
+//   const quoteToggle = document.getElementById("quoteToggle");
 
-  quoteToggle.addEventListener("click", function () {
-    quoteCard.classList.toggle("flipped");
-  });
-});
+//   quoteToggle.addEventListener("click", function () {
+//     quoteCard.classList.toggle("flipped");
+//   });
+// });
 
 // Gallery filter
-document.querySelectorAll(".gallery-filter .filter-btn").forEach((btn) => {
-  btn.addEventListener("click", function () {
-    const filter = this.dataset.filter;
-    document
-      .querySelectorAll(".gallery-filter .filter-btn")
-      .forEach((b) => b.classList.remove("active"));
-    this.classList.add("active");
+// document.querySelectorAll(".gallery-filter .filter-btn").forEach((btn) => {
+//   btn.addEventListener("click", function () {
+//     const filter = this.dataset.filter;
+//     document
+//       .querySelectorAll(".gallery-filter .filter-btn")
+//       .forEach((b) => b.classList.remove("active"));
+//     this.classList.add("active");
 
-    document.querySelectorAll(".gallery-item").forEach((item) => {
-      const category = item.dataset.category;
-      item.style.display =
-        filter === "all" || category === filter ? "block" : "none";
-    });
-  });
-});
+//     document.querySelectorAll(".gallery-item").forEach((item) => {
+//       const category = item.dataset.category;
+//       item.style.display =
+//         filter === "all" || category === filter ? "block" : "none";
+//     });
+//   });
+// });
 
 // Alumni carousel
 // let currentIndex = 0;
@@ -999,178 +999,3 @@ document.querySelectorAll(".gallery-filter .filter-btn").forEach((btn) => {
 //   dot.addEventListener("click", () => updateTestimonial(index));
 //   dotsContainer.appendChild(dot);
 // });
-
-// Wait for DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-  
-  // Testimonial Carousel functionality
-  function initTestimonialCarousel() {
-    const testimonials = document.querySelectorAll('.testimonial');
-    const dotsContainer = document.querySelector('.carousel-dots');
-    const prevButton = document.querySelector('.carousel-prev');
-    const nextButton = document.querySelector('.carousel-next');
-    
-    // Check if all required elements exist
-    if (!testimonials.length || !dotsContainer || !prevButton || !nextButton) {
-      console.warn('Testimonial carousel elements not found. Skipping initialization.');
-      return;
-    }
-    
-    let currentIndex = 0;
-
-    function updateTestimonial(index) {
-      // Remove active class from current testimonial and dot
-      if (testimonials[currentIndex]) {
-        testimonials[currentIndex].classList.remove("active");
-      }
-      if (dotsContainer.children[currentIndex]) {
-        dotsContainer.children[currentIndex].classList.remove("active");
-      }
-      
-      // Update index
-      currentIndex = index;
-      
-      // Add active class to new testimonial and dot
-      if (testimonials[currentIndex]) {
-        testimonials[currentIndex].classList.add("active");
-      }
-      if (dotsContainer.children[currentIndex]) {
-        dotsContainer.children[currentIndex].classList.add("active");
-      }
-    }
-
-    // Previous button event listener
-    prevButton.addEventListener("click", () => {
-      updateTestimonial(
-        (currentIndex - 1 + testimonials.length) % testimonials.length
-      );
-    });
-
-    // Next button event listener
-    nextButton.addEventListener("click", () => {
-      updateTestimonial((currentIndex + 1) % testimonials.length);
-    });
-
-    // Initialize dots click functionality
-    Array.from(dotsContainer.children).forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        updateTestimonial(index);
-      });
-    });
-
-    // Auto-play functionality (optional)
-    setInterval(() => {
-      updateTestimonial((currentIndex + 1) % testimonials.length);
-    }, 5000); // Change testimonial every 5 seconds
-  }
-
-  // Initialize testimonial carousel
-  initTestimonialCarousel();
-
-  // Lightbox functionality (fixed)
-  function initLightbox() {
-    // Check if lightbox library is loaded
-    if (typeof lightbox !== 'undefined') {
-      try {
-        // Initialize lightbox with proper options
-        lightbox.option({
-          'resizeDuration': 200,
-          'wrapAround': true,
-          'showImageNumberLabel': false
-        });
-      } catch (error) {
-        console.error('Lightbox initialization failed:', error);
-      }
-    } else {
-      console.warn('Lightbox library not found. Make sure to include the lightbox CSS and JS files.');
-    }
-  }
-
-  // Initialize lightbox
-  initLightbox();
-
-  // AOS (Animate On Scroll) initialization
-  function initAOS() {
-    if (typeof AOS !== 'undefined') {
-      try {
-        AOS.init({
-          duration: 1000,
-          once: true,
-          offset: 100
-        });
-      } catch (error) {
-        console.error('AOS initialization failed:', error);
-      }
-    } else {
-      console.warn('AOS library not found. Make sure to include the AOS CSS and JS files.');
-    }
-  }
-
-  // Initialize AOS
-  initAOS();
-
-  // Generic function to safely add event listeners
-  function safeAddEventListener(selector, event, handler) {
-    const element = document.querySelector(selector);
-    if (element) {
-      element.addEventListener(event, handler);
-    } else {
-      console.warn(`Element with selector "${selector}" not found.`);
-    }
-  }
-
-  // Example usage for other elements
-  safeAddEventListener('.menu-toggle', 'click', function() {
-    const nav = document.querySelector('.nav-menu');
-    if (nav) {
-      nav.classList.toggle('active');
-    }
-  });
-
-  // Contact form handling (if exists)
-  safeAddEventListener('#contact-form', 'submit', function(e) {
-    e.preventDefault();
-    // Add your form submission logic here
-    console.log('Form submitted');
-  });
-
-});
-
-// Alternative approach using modern async/await for external libraries
-async function loadExternalLibraries() {
-  // Wait for external libraries to load
-  const checkLibrary = (libName, globalVar) => {
-    return new Promise((resolve) => {
-      const checkInterval = setInterval(() => {
-        if (window[globalVar]) {
-          clearInterval(checkInterval);
-          resolve(true);
-        }
-      }, 100);
-      
-      // Timeout after 5 seconds
-      setTimeout(() => {
-        clearInterval(checkInterval);
-        resolve(false);
-      }, 5000);
-    });
-  };
-
-  // Check for AOS
-  const aosLoaded = await checkLibrary('AOS', 'AOS');
-  if (aosLoaded) {
-    AOS.init();
-  }
-
-  // Check for Lightbox
-  const lightboxLoaded = await checkLibrary('lightbox', 'lightbox');
-  if (lightboxLoaded) {
-    lightbox.option({
-      'resizeDuration': 200,
-      'wrapAround': true
-    });
-  }
-}
-
-// Uncomment the line below if you prefer the async approach
-// loadExternalLibraries();
