@@ -199,14 +199,14 @@ section {
 }
 
 .btn-secondary {
-  background-color: var(--secondary);
-  color: var(--text-light);
+  background-color: #ff9933;
+  color: #ffffff;
   box-shadow: 0 4px 10px rgba(255, 153, 51, 0.3);
 }
 
 .btn-secondary:hover {
   background-color: #e58021;
-  color: var(--text-light);
+  color: #ffffff;
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(255, 153, 51, 0.4);
 }

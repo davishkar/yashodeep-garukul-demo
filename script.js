@@ -343,9 +343,9 @@ class PhotoGallery {
                     <img src="${photo.src}" alt="${photo.title}" loading="lazy">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
-                            <h4>${photo.title}</h4>
+                            <h3>${photo.title}</h3>
                             <p>${photo.description}</p>
-                            <button class="gallery-zoom" data-index="${index}">
+                            <button class="gallery-zoom" data-index="${index}" aria-label="View ${photo.title} in full size">
                                 <i class="fas fa-search-plus"></i>
                             </button>
                         </div>
