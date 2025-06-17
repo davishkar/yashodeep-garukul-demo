@@ -510,7 +510,7 @@ section {
 .hero-scroll-indicator {
   position: absolute;
   bottom: 30px;
-  left: 50%;
+  /* left: 50%; */
   transform: translateX(-50%);
   color: var(--text-light);
   text-align: center;
