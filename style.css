@@ -3303,3 +3303,64 @@ textarea.form-control {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
+
+/* ===== Floating Action Buttons ===== */
+.floating-actions { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 16px; z-index: 1000; }
+.call-btn { position: relative; width: 64px; height: 64px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 24px; box-shadow: 0 8px 32px rgba(102,126,234,0.4); transition: all 0.3s cubic-bezier(0.4,0,0.2,1); overflow: hidden; animation: callPulse 1.5s ease-out infinite; }
+@keyframes callPulse { 0% { box-shadow: 0 0 0 0 rgba(37,69,211,0.5); } 80% { box-shadow: 0 0 0 14px rgba(37,211,102,0); } }
+.call-btn::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg,rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.1) 100%); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease; }
+.call-btn:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 16px 48px rgba(102,126,234,0.6); }
+.call-btn:hover::before { opacity: 1; }
+.call-btn::after { content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; border: 2px solid rgba(102,126,234,0.6); border-radius: 50%; animation: floatPulse 2s infinite; }
+@keyframes floatPulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.4); opacity: 0; } }
+.chat-btn { display: flex; align-items: center; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-radius: 32px; padding: 12px 24px 12px 16px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); border: 1px solid rgba(255,255,255,0.2); box-shadow: rgba(0,0,0,0.2) 0px 20px 30px; }
+.chat-btn:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.15); background: rgba(255,255,255,1); }
+.whatsapp-icon { width: 44px; height: 44px; background: linear-gradient(135deg,#25d366 0%,#128c7e 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; color: white; font-size: 20px; transition: all 0.3s ease; }
+.chat-btn:hover .whatsapp-icon { transform: rotate(360deg); }
+.chat-text { font-weight: 600; color: #333; font-size: 14px; letter-spacing: 0.5px; text-transform: uppercase; }
+.back-to-top { width: 56px; height: 56px; backdrop-filter: blur(20px); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #333; font-size: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); transition: all 0.3s cubic-bezier(0.4,0,0.2,1); opacity: 0; visibility: hidden; transform: translateY(20px); border: 1px solid rgba(255,255,255,0.3); }
+.back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { transform: translateY(-4px); background: rgba(255,255,255,1); box-shadow: 0 16px 48px rgba(0,0,0,0.15); }
+@media (max-width: 768px) { .floating-actions { bottom: 20px; right: 20px; gap: 12px; } .call-btn { width: 56px; height: 56px; font-size: 20px; } .chat-btn { padding: 10px 20px 10px 12px; } .whatsapp-icon { width: 40px; height: 40px; font-size: 18px; margin-right: 10px; } .chat-text { font-size: 13px; } .back-to-top { width: 48px; height: 48px; font-size: 16px; } }
+
+/* ===== Page Hero Banner (sub-pages) ===== */
+.page-hero { background: linear-gradient(135deg,var(--primary) 0%,#7a0029 60%,var(--primary) 100%); padding: 120px 20px 60px; text-align: center; color: #fff; position: relative; overflow: hidden; }
+.page-hero::before { content: ''; position: absolute; top: -40px; right: -60px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle,rgba(255,153,51,0.2) 0%,transparent 70%); }
+.page-hero-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+.page-hero-subtitle { font-size: 1.2rem; opacity: 0.85; margin-bottom: 16px; }
+.breadcrumb { font-size: 0.9rem; opacity: 0.75; }
+.breadcrumb a { color: var(--secondary); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb span { margin: 0 8px; }
+@media (max-width: 768px) { .page-hero { padding: 100px 20px 50px; } .page-hero-title { font-size: 1.8rem; } }
+
+/* ===== Administrative Section ===== */
+.administrative-section { padding: 80px 0; background: linear-gradient(135deg,#fffcf2 0%,#f5f5f5 100%); position: relative; overflow: hidden; }
+.administrative-section::before { content: ''; position: absolute; top: -60px; left: -60px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle,rgba(153,0,51,0.08) 0%,transparent 70%); }
+.administrative-section::after { content: ''; position: absolute; bottom: -80px; right: -60px; width: 350px; height: 350px; border-radius: 50%; background: radial-gradient(circle,rgba(255,153,51,0.1) 0%,transparent 70%); }
+.admin-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap: 40px; margin-top: 40px; }
+.admin-card { border-radius: 20px; overflow: hidden; transition: transform 0.35s ease,box-shadow 0.35s ease; position: relative; border: 1px solid rgba(153,0,51,0.12); }
+.admin-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(153,0,51,0.18); }
+.admin-card-inner { display: flex; flex-direction: column; align-items: center; padding: 40px 30px 30px; gap: 16px; text-align: center; }
+.admin-img-wrapper { position: relative; width: 150px; height: 150px; }
+.admin-img-ring { position: absolute; inset: -6px; border-radius: 50%; background: conic-gradient(from 0deg,var(--primary),var(--secondary),var(--primary)); animation: ringRotate 6s linear infinite; }
+@keyframes ringRotate { to { transform: rotate(360deg); } }
+.admin-img { position: relative; width: 150px; height: 150px; object-fit: cover; object-position: center top; border-radius: 50%; border: 4px solid #fff; z-index: 1; }
+.admin-badge { position: absolute; top: 26px; right: 26px; width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg,var(--primary),#7a0029); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 14px; box-shadow: 0 4px 12px rgba(153,0,51,0.35); }
+.admin-badge--secretary { background: linear-gradient(135deg,var(--secondary),#e58021); }
+.admin-info { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.admin-name { font-size: 1.25rem; font-weight: 700; color: var(--primary); font-family: 'Noto Sans Devanagari','Poppins',sans-serif; line-height: 1.3; }
+.admin-role { display: inline-block; background: linear-gradient(135deg,var(--primary),#7a0029); color: #fff; padding: 4px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; font-family: 'Noto Sans Devanagari',sans-serif; }
+.admin-role-en { font-family: 'Poppins',sans-serif; font-size: 0.82rem; opacity: 0.85; }
+.admin-message { background: rgba(255,255,255,0.55); border-left: 4px solid var(--primary); border-radius: 10px; padding: 16px 18px; text-align: left; box-shadow: 0 2px 10px rgba(153,0,51,0.07); }
+.quote-icon { color: var(--secondary); font-size: 1rem; margin-bottom: 6px; }
+.admin-message p { font-size: 0.88rem; line-height: 1.75; color: #374151; font-family: 'Noto Sans Devanagari',sans-serif; }
+@media (max-width: 768px) { .admin-grid { grid-template-columns: 1fr; } .admin-card-inner { padding: 30px 20px 24px; } }
+
+/* ===== Admissions Extra ===== */
+.admission-info { padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+.required-documents ul { list-style-type: disc; padding-left: 1.5rem; margin: 1rem 0; }
+.highlight { color: #d32f2f; font-weight: bold; }
+.note { background-color: rgba(255,243,224,0.8); padding: 1rem; border-left: 4px solid #ff9800; margin-top: 1.5rem; }
+.admission-timing, .required-documents { margin-top: 1.5rem; }
+

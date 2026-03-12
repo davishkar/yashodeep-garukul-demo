@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery | Yashodeep Gurukul Academy</title>
+    <meta name="description" content="Browse the photo gallery of Yashodeep Gurukul Academy — events, sports, academics, and cultural programs.">
+    <link rel="shortcut icon" href="../favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar glassmorphism" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="../index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+                    <img src="../images/logoy (1).webp" alt="Yashodeep Gurukul Academy Logo" class="logo-img">
+                    <div class="logo-text">
+                        <span class="english-title">Yashodeep Gurukul Academy</span>
+                        <span class="marathi-title">यशोदीप गुरुकुल अकॅडमी</span>
+                    </div>
+                </a>
+            </div>
+            <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="courses.html" class="nav-link">Courses</a></li>
+                <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+                <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                <li><a href="administrative.html" class="nav-link">Administrative</a></li>
+                <li><a href="admissions.html" class="nav-link">Admissions</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-title">Photo Gallery</div>
+        <div class="page-hero-subtitle marathi-title">फोटो गॅलरी</div>
+        <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><span>Gallery</span></div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h1 class="section-title">Photo Gallery</h1>
+                <div class="section-subtitle marathi-title">फोटो गॅलरी</div>
+                <div class="section-underline"></div>
+            </div>
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+                <button class="filter-btn" data-filter="sports">Sports</button>
+                <button class="filter-btn" data-filter="academics">Academics</button>
+                <button class="filter-btn" data-filter="cultural">Cultural</button>
+            </div>
+            <div class="gallery-masonry" id="galleryContainer">
+                <div class="loading"><i class="fas fa-spinner"></i> Loading gallery...</div>
+            </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <div class="lightbox-content">
+                <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox"><i class="fas fa-times"></i></button>
+                <img class="lightbox-img" id="lightboxImg" src="" alt="">
+                <div class="lightbox-caption" id="lightboxCaption"></div>
+                <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                <button class="lightbox-next" id="lightboxNext" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../images/logoy (1).webp" alt="Yashodeep Gurukul Academy Logo" style="max-width:90px;">
+                    <h3>Yashodeep Gurukul Academy</h3>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> M88P+492, near shree petroliyam, Sangavade Phata, Sangavade, Karveer, Kolhapur, Maharashtra 416202</p>
+                    <p><i class="fas fa-phone"></i> +91 20 2567 8901</p>
+                    <p><i class="fas fa-envelope"></i> yashodeepgurukulacademy@gmail.com</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Yashodeep Gurukul Academy. All rights reserved.</p>
+                <p>Powered by <a href="https://davishkar.github.io/My-Services-Page/" target="_blank">Avishkar Digital Studio</a></p>
+                <small>v 1.0.0</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-actions">
+        <a href="tel:+919146964882" class="call-btn" aria-label="Call us"><i class="fas fa-phone"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=9146964882&text=नमस्कार" target="_blank" rel="noopener noreferrer" class="chat-btn" aria-label="WhatsApp">
+            <div class="whatsapp-icon"><i class="fab fa-whatsapp"></i></div>
+            <span class="chat-text">Chat</span>
+        </a>
+        <div id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+    <script src="../js/nav.js"></script>
+    <script src="../js/gallery.js"></script>
+</body>
+</html>
